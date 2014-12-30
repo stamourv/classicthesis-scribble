@@ -127,8 +127,4 @@ ccc
 @cite[bagwell-lists]
 @cite[bagwell-trie]
 
-
-@section[#:style '(unnumbered hidden) #:tag "empty2"]{}
-@elem[#:style "newpage"]
-
 @gen-bib[]

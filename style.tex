@@ -186,6 +186,7 @@
 %% chapter). Let's just hope all section*x should be chapters instead...
 %% arguments are the bibliography's name (twice?)
 \renewcommand{\Ssectionstarx}[2]{
+  \cleardoublepage
   \manualmark
   \markboth{\spacedlowsmallcaps{\bibname}}{\spacedlowsmallcaps{#1}} % work-around to have small caps also
   \refstepcounter{dummy}
