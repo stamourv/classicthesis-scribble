@@ -65,4 +65,10 @@ FORMAT
   (location "Slocation")
   (submit-date "Ssubmitdate"))
 (define-wrappers
-  (approval "Sapproval"))
+  (approval "Sapproval")
+  (abstract "Sabstract") ;; TODO include-abstract too
+  )
+
+;; TODO possible additions (supported by classicthesis)
+;;  - subtitles
+;;  - dedications
