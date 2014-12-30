@@ -4,3 +4,7 @@ compiled/
 *.pdf
 *.log
 *.out
+*.toc
+*.tex
+classicthesis/
+garbage
