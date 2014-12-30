@@ -1,17 +1,17 @@
-%% these are overwritten by scribble-generated code
+%% these are overwritten by functions that are called from scribble-generated code
 \newcommand{\myTitle}{Put title Here}
-\newcommand{\mySubtitle}{Put subtitle Here}
-\newcommand{\myDegree}{Put degree Here}
+%% \newcommand{\mySubtitle}{Put subtitle Here} %% did not add support on the scribble side
 \newcommand{\myName}{Put name here}
-\newcommand{\myProf}{Put name here}
-\newcommand{\myOtherProf}{Put name here}
-\newcommand{\mySupervisor}{Put name here}
-\newcommand{\myFaculty}{Put data here}
-\newcommand{\myDepartment}{Put data here}
-\newcommand{\myUni}{Put data here}
-\newcommand{\myLocation}{Put data here}
-\newcommand{\myTime}{Put data here}
-\newcommand{\myVersion}{Put data here}
+%% \newcommand{\myProf}{Put name here} %% ditto
+%% \newcommand{\myOtherProf}{Put name here}
+%% \newcommand{\mySupervisor}{Put name here}
+%% \newcommand{\myFaculty}{Put data here}
+\newcommand{\Sdegree}[1]{\newcommand{\myDegree}{#1}}
+\newcommand{\Sdepartment}[1]{\newcommand{\myDepartment}{#1}}
+\newcommand{\Suniversity}[1]{\newcommand{\myUni}{#1}}
+\newcommand{\Slocation}[1]{\newcommand{\myLocation}{#1}}
+\newcommand{\Ssubmitdate}[1]{\newcommand{\myTime}{#1}}
+%% \newcommand{\myVersion}{Put data here} %% ditto
 
 \usepackage{classicthesis}
 
@@ -45,9 +45,8 @@
         Submitted in partial fulfillment of the requirements \\
         for the degree of \myDegree \\ \bigskip
 
-        to the \\ \bigskip
+        \bigskip
 
-        \myFaculty \\
         \myDepartment \\
         \myUni \\ \myLocation \bigskip
 

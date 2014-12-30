@@ -5,7 +5,7 @@
 (require scribble/doclang
          scribble/core
          scribble/base
-         scribble/sigplan
+         scribble/decode
          scribble/latex-prefix
          scribble/latex-properties
          racket/list
@@ -38,3 +38,31 @@ FORMAT
                 (list (collection-file-path "classicthesis.sty"
                                             "classicthesis"))
                 #f))
+
+;; thesis command wrappers
+;; taken from John Rafkind's uuthesis wrapper
+(define-syntax-rule (define-wrappers (name style) ...)
+  (begin
+    (define (name . str)
+      (make-element (make-style style '()) (decode-content str)))
+    ...
+    (provide name ...)))
+(define-syntax-rule (define-pre-title-wrappers (name style) ...)
+  (begin
+    (define (name . str)
+      (make-paragraph
+       (make-style 'pretitle '())
+       (make-multiarg-element
+        (make-style style '())
+        (decode-content str))))
+    ...
+    (provide name ...)))
+
+(define-pre-title-wrappers
+  (degree "Sdegree")
+  (department "Sdepartment")
+  (university "Suniversity")
+  (location "Slocation")
+  (submit-date "Ssubmitdate"))
+(define-wrappers
+  )
