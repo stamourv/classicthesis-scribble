@@ -67,6 +67,7 @@ FORMAT
 (define-wrappers
   (approval "Sapproval")
   (abstract "Sabstract") ;; TODO include-abstract too
+  (acknowledgements "Sacknowledgements") ;; TODO include-acknowledgements too
   )
 
 ;; TODO possible additions (supported by classicthesis)

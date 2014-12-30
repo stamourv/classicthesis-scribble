@@ -110,5 +110,15 @@
   \cleardoublepage
 }
 
+\newcommand{\Sacknowledgements}[1]{
+  \pdfbookmark[1]{Acknowledgments}{acknowledgments}
+  \bigskip
+  \begingroup
+  \chapter*{Acknowledgments}
+  #1
+  \endgroup
+  \cleardoublepage
+}
+
 
 %% TODO add rest of classicthesis-config somewhere?
