@@ -88,6 +88,12 @@ FORMAT
 (define-section-like chapter "Sthesischapter")
 
 
+;; TODO broken
+;;  - table of contents formatting not like stephen's thesis (page numbers at right, with dots)
+;;  - no pdf index
+;;  - bibliography formatting not like stephen's thesis
+
+
 ;; TODO possible additions (supported by classicthesis)
 ;;  - subtitles
 ;;  - dedications
