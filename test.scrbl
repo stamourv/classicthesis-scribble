@@ -131,5 +131,4 @@ ccc
 @section[#:style '(unnumbered hidden) #:tag "empty2"]{}
 @elem[#:style "newpage"]
 
-@; @reformat-bibliography[@gen-bib[]]
 @gen-bib[]
