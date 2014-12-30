@@ -91,4 +91,4 @@ FORMAT
 ;; TODO possible additions (supported by classicthesis)
 ;;  - subtitles
 ;;  - dedications
-;;  - list of figures, tables, etc. (may be tricky: scribble has its own counters)
+;;  - list of figures, tables, etc. (may require same trickery as for sections to get labels to agree)

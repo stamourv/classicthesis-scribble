@@ -98,6 +98,9 @@ aaa
 
 @figure["eh" "eh"]{ehh}
 
+@figure-ref{eh}
+@Figure-ref{eh}
+
 @section{B}
 
 bbb
