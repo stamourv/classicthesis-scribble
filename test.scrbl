@@ -72,3 +72,43 @@ inspiration and for making me strive to be a better person in all aspects of
 life. Stella and Evan, thanks for providing meaning and purpose in life, in a
 way that I previously did not know was possible. I love you all.
 }
+
+@table-of-contents{}
+
+
+@(require scriblib/figure)
+
+@part[#:tag "aaa-tag"]{AAA}
+
+@chapter[#:tag "ab-tag"]{AB}
+
+@section{A}
+
+aaa
+
+@partref{aaa-tag}
+@Partref{aaa-tag}
+@chapterref{ab-tag}
+@Chapterref{ab-tag}
+
+
+@figure["eh" "eh"]{ehh}
+
+@section{B}
+
+bbb
+
+@subsection{BA}
+baaa
+@subsection{BB}
+bbbb
+
+@chapter{b.5}
+@section{b.5.1}
+@section{b/5/3}
+
+@part{CCC}
+@chapter{ccc}
+@section{C}
+
+ccc

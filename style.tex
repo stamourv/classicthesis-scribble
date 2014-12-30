@@ -120,5 +120,41 @@
   \cleardoublepage
 }
 
+\newcommand{\Stableofcontents}[1]{
+  \refstepcounter{dummy}
+  \pdfbookmark[1]{\contentsname}{tableofcontents}
+  \setcounter{tocdepth}{2} % <-- 2 includes up to subsections in the ToC
+  \setcounter{secnumdepth}{3} % <-- 3 numbers up to subsubsections
+  \manualmark
+  \markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}
+  \tableofcontents
+  \automark[section]{chapter}
+  \renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
+  \renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\spacedlowsmallcaps{#1}}}
+  \cleardoublepage
+
+  %% last section before content proper, so set page numbering
+  \pagenumbering{arabic}
+}
+
+\newcommand{\Sthesispart}[2]{
+  \part{#2}\label{#1}
+}
+\newcommand{\Sthesispartref}[1]{
+  part~\ref{#1}
+}
+\newcommand{\SthesisPartref}[1]{
+  Part~\ref{#1}
+}
+
+\newcommand{\Sthesischapter}[2]{
+  \chapter{#2}\label{#1}
+}
+\newcommand{\Sthesischapterref}[1]{
+  chapter~\ref{#1}
+}
+\newcommand{\SthesisChapterref}[1]{
+  Chapter~\ref{#1}
+}
 
 %% TODO add rest of classicthesis-config somewhere?

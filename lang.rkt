@@ -3,7 +3,7 @@
 ;; Mostly copied from scribble/sigplan/lang
 
 (require scribble/doclang
-         scribble/core
+         (except-in scribble/core part)
          scribble/base
          scribble/decode
          scribble/latex-prefix
@@ -58,18 +58,37 @@ FORMAT
     ...
     (provide name ...)))
 
+(define-syntax-rule (define-section-like name style)
+  (begin
+    (define (name #:tag [tag (symbol->string (gensym))] . str)
+      (make-multiarg-element (make-style style '())
+                             (list (decode-content (list tag))
+                                   (decode-content str))))
+    (provide name)))
+
 (define-pre-title-wrappers
   (degree "Sdegree")
   (department "Sdepartment")
   (university "Suniversity")
   (location "Slocation")
   (submit-date "Ssubmitdate"))
+
 (define-wrappers
   (approval "Sapproval")
   (abstract "Sabstract") ;; TODO include-abstract too
   (acknowledgements "Sacknowledgements") ;; TODO include-acknowledgements too
+  (table-of-content "Stableofcontents")
+  (partref "Sthesispartref")
+  (Partref "SthesisPartref")
+  (chapterref "Sthesischapterref")
+  (Chapterref "SthesisChapterref")
   )
+
+(define-section-like part "Sthesispart")
+(define-section-like chapter "Sthesischapter")
+
 
 ;; TODO possible additions (supported by classicthesis)
 ;;  - subtitles
 ;;  - dedications
+;;  - list of figures, tables, etc. (may be tricky: scribble has its own counters)
