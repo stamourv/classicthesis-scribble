@@ -11,7 +11,7 @@
          racket/list
          scribble/private/defaults
          setup/collects
-         (for-syntax scheme/base))
+         (for-syntax racket/base))
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
          (all-from-out scribble/base)
          (rename-out [module-begin #%module-begin]))
