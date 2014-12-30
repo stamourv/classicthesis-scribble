@@ -7,3 +7,5 @@
 @university{University of Utah}
 @location{Salt Lake City, Utah}
 @submit-date{May 2013}
+
+@approval{testapproval.pdf}

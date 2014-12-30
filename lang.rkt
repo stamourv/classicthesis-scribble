@@ -65,4 +65,4 @@ FORMAT
   (location "Slocation")
   (submit-date "Ssubmitdate"))
 (define-wrappers
-  )
+  (approval "Sapproval"))

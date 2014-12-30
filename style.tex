@@ -79,14 +79,10 @@
   \titleAndVersionAndAuthors{#1}{#2}{#3}
 }
 
-
-
-
-%% TODO add rest of classicthesis-config somewhere
-
-
-%%% TODO starting scribble stuff again
-
-\renewcommand{\preDoc}{
-
+\usepackage{pdfpages}
+\newcommand{\Sapproval}[1]{
+  \includepdf[pages={1}]{#1}
+  \cleardoublepage
 }
+
+%% TODO add rest of classicthesis-config somewhere?
