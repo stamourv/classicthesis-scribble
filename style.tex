@@ -183,4 +183,13 @@
   Section~\ref{#1}
 }
 
-%% TODO add rest of classicthesis-config somewhere?
+%% Redefine, to make bibliography standalone (i.e. not a section of the last
+%% chapter). Let's just hope all section*x should be chapters instead...
+%% arguments are the bibliography's name (twice?)
+\renewcommand{\Ssectionstarx}[2]{
+  \manualmark
+  \markboth{\spacedlowsmallcaps{\bibname}}{\spacedlowsmallcaps{#1}} % work-around to have small caps also
+  \refstepcounter{dummy}
+  \addtocontents{toc}{\protect\vspace{\beforebibskip}} % to have the bib a bit from the rest in the toc
+  \Ssectionstar{#2}\addcontentsline{toc}{chapter}{#1}
+}

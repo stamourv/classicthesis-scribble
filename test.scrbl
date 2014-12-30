@@ -121,3 +121,15 @@ bbbb
 @section[#:tag "cc-tag"]{CC}
 
 ccc
+
+@require["test-bib.rkt"]
+@cite[oka]
+@cite[bagwell-lists]
+@cite[bagwell-trie]
+
+
+@section[#:style '(unnumbered hidden) #:tag "empty2"]{}
+@elem[#:style "newpage"]
+
+@; @reformat-bibliography[@gen-bib[]]
+@gen-bib[]
