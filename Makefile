@@ -1,2 +1,3 @@
 all:
-	scribble --latex test.scrbl && rubber -d test.tex
+	scribble --latex test.scrbl
+	rubber -d test.tex
