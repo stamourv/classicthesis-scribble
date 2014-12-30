@@ -90,7 +90,6 @@ FORMAT
 
 ;; TODO broken
 ;;  - table of contents formatting not like stephen's thesis (page numbers at right, with dots)
-;;  - no pdf index
 ;;  - bibliography formatting not like stephen's thesis
 
 
