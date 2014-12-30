@@ -157,4 +157,14 @@
   Chapter~\ref{#1}
 }
 
+\renewcommand{\Ssection}[2]{
+  \section[#1]{#2}\let\thesubsection\SOriginalthesubsection\label{#1}
+}
+\renewcommand{\ChapRefLocal}[3]{
+  section~\ref{#1}
+}
+\renewcommand{\ChapRefLocalUC}[3]{
+  Section~\ref{#1}
+}
+
 %% TODO add rest of classicthesis-config somewhere?

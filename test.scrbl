@@ -82,7 +82,7 @@ way that I previously did not know was possible. I love you all.
 
 @chapter[#:tag "ab-tag"]{AB}
 
-@section{A}
+@section[#:tag "a-tag"]{A}
 
 aaa
 
@@ -90,6 +90,10 @@ aaa
 @Partref{aaa-tag}
 @chapterref{ab-tag}
 @Chapterref{ab-tag}
+@secref{a-tag}
+@Secref{a-tag}
+@secref{cc-tag}
+@Secref{cc-tag}
 
 
 @figure["eh" "eh"]{ehh}
@@ -110,5 +114,6 @@ bbbb
 @part{CCC}
 @chapter{ccc}
 @section{C}
+@section[#:tag "cc-tag"]{CC}
 
 ccc
