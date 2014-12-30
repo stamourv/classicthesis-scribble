@@ -74,6 +74,7 @@ way that I previously did not know was possible. I love you all.
 }
 
 @table-of-contents{}
+@end-front-matter{}
 
 
 @(require scriblib/figure)

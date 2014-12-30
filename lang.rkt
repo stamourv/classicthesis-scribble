@@ -82,6 +82,7 @@ FORMAT
   (Partref "SthesisPartref")
   (chapterref "Sthesischapterref")
   (Chapterref "SthesisChapterref")
+  (end-front-matter "Sendfrontmatter")
   )
 
 (define-section-like part "Sthesispart")

@@ -132,9 +132,12 @@
   \renewcommand{\chaptermark}[1]{\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}}
   \renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\spacedlowsmallcaps{#1}}}
   \cleardoublepage
+}
 
-  %% last section before content proper, so set page numbering
-  \pagenumbering{arabic}
+%% doesn't seem to work when called from inside \Stableofcontents, so
+%% needs to be called explicitly from the scribble document
+\newcommand{\Sendfrontmatter}{
+  \cleardoublepage\pagenumbering{arabic}
 }
 
 \newcommand{\Sthesispart}[2]{
