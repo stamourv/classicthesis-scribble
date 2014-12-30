@@ -1,0 +1,81 @@
+\newcommand{\myTitle}{Put title Here\xspace}
+\newcommand{\mySubtitle}{Put subtitle Here\xspace}
+\newcommand{\myDegree}{Put degree Here\xspace}
+\newcommand{\myName}{Put name here\xspace}
+\newcommand{\myProf}{Put name here\xspace}
+\newcommand{\myOtherProf}{Put name here\xspace}
+\newcommand{\mySupervisor}{Put name here\xspace}
+\newcommand{\myFaculty}{Put data here\xspace}
+\newcommand{\myDepartment}{Put data here\xspace}
+\newcommand{\myUni}{Put data here\xspace}
+\newcommand{\myLocation}{Put data here\xspace}
+\newcommand{\myTime}{Put data here\xspace}
+\newcommand{\myVersion}{Put data here\xspace}
+
+\usepackage{classicthesis}
+
+
+\newcommand{\thesisTitle}{
+%% taken from Stephen Chang's dissertation
+\begin{titlepage}
+\begin{addmargin}[-1cm]{-2cm}
+    \begin{center}
+        \large
+
+        \hfill
+
+        \vfill
+
+        \begingroup
+        \LARGE
+            \parbox[c][1in][c]{5in}{\center\color{Blue}\spacedallcaps{\myTitle}} \\ \bigskip
+        \endgroup
+
+        \bigskip
+
+        \spacedlowsmallcaps{\Large \myName}
+
+        \vfill
+
+        \vfill
+
+%        \mySubtitle \\ \medskip
+
+        Submitted in partial fulfillment of the requirements \\
+        for the degree of \myDegree \\ \bigskip
+
+        to the \\ \bigskip
+
+        \myFaculty \\
+        \myDepartment \\
+        \myUni \\ \myLocation \bigskip
+
+        \myTime\ %-- \myVersion
+
+        \vfill
+
+    \end{center}
+  \end{addmargin}
+\end{titlepage}
+}
+
+\renewcommand{\titleAndVersionAndAuthors}[3]{
+  \renewcommand{\myTitle}{#1}
+  \renewcommand{\myName}{#3}
+  \thesisTitle
+}
+\renewcommand{\titleAndEmptyVersionAndAuthors}[3]{
+  \titleAndVersionAndAuthors{#1}{#2}{#3}
+}
+
+
+
+
+%% TODO add rest of classicthesis-config somewhere
+
+
+%%% TODO starting scribble stuff again
+
+\renewcommand{\preDoc}{
+
+}
