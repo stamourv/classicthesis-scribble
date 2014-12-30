@@ -22,6 +22,14 @@
   pdfspacing,%floatperchapter,%linedheaders,%
   subfig,beramono,eulermath,parts}{classicthesis}
 
+\newcounter{dummy} % necessary for correct hyperlinks (to index, bib, etc.)
+\newlength{\abcd} % for ab..z string length calculation
+\usepackage{textcomp} % fix warning with missing font shapes
+\usepackage{scrhack} % fix warnings when using KOMA with listings package
+\usepackage{xspace} % to get the spacing after macros right
+\usepackage{mparhack} % get marginpar right
+\usepackage{fixltx2e} % fixes some LaTeX stuff
+
 \usepackage{classicthesis}
 
 \renewcommand{\preDoc}{
