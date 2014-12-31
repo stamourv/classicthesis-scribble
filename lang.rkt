@@ -75,8 +75,8 @@ FORMAT
 
 (define-wrappers
   (approval "Sapproval")
-  (abstract "Sabstract") ;; TODO include-abstract too
-  (acknowledgements "Sacknowledgements") ;; TODO include-acknowledgements too
+  (abstract "Sabstract")
+  (acknowledgements "Sacknowledgements")
   (table-of-contents "Stableofcontents")
   (partref "Sthesispartref")
   (Partref "SthesisPartref")
@@ -87,6 +87,21 @@ FORMAT
 (define-section-like part "Sthesispart") ;; TODO include-part too?
 (define-section-like chapter "Sthesischapter") ;; TODO include-chapter too
 
+(define-syntax-rule (define-includer name style)
+  (begin
+    (define-syntax (name stx)
+      (syntax-case stx ()
+        [(_ module)
+         (let ()
+           (define name* (gensym 'name))
+           #'(begin
+               (require (rename-in module [doc name*]))
+               (make-nested-flow (make-style style '(command))
+                                 (part-blocks name*))))]))
+    (provide name)))
+
+(define-includer include-abstract "Sabstract")
+(define-includer include-acknowledgements "Sacknowledgements")
 
 ;; TODO possible additions (supported by classicthesis)
 ;;  - subtitles
