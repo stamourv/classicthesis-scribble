@@ -323,7 +323,10 @@
     {%
         \PackageInfo{classicthesis}{Using MinionPro's textssc for character spacing.}%
         \DeclareRobustCommand{\spacedallcaps}[1]{\textssc{\MakeTextUppercase{#1}}}%
-        \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textssc{\MakeTextLowercase{#1}}}%
+        %% stamourv: why does this make everything lowercase? that
+        %%   screws up labels in the table of contents...
+        %% \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textssc{\MakeTextLowercase{#1}}}%
+        \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textssc{{#1}}}%
     }{%
         \ifthenelse{\boolean{@pdfspacing}}%
         {%
@@ -331,13 +334,16 @@
                                         Make sure your pdftex is version 1.40 or higher.}%
             \microtypesetup{expansion=false}%
             \DeclareRobustCommand{\spacedallcaps}[1]{\textls[160]{\MakeTextUppercase{#1}}}%
-            \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textls[80]{\scshape\MakeTextLowercase{#1}}}%
+            %% stamourv: idem
+            %% \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textls[80]{\scshape\MakeTextLowercase{#1}}}%
+            \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textls[80]{\scshape{#1}}}%
         }{%
             \RequirePackage{soul} % for letterspacing 
                 \sodef\allcapsspacing{\upshape}{0.15em}{0.65em}{0.6em}%
                 \sodef\lowsmallcapsspacing{\scshape}{0.075em}{0.5em}{0.6em}%   
-                \DeclareRobustCommand{\spacedallcaps}[1]{\MakeTextUppercase{\allcapsspacing{#1}}}%   
-	            \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\MakeTextLowercase{\textsc{\lowsmallcapsspacing{#1}}}}%\protect
+                \DeclareRobustCommand{\spacedallcaps}[1]{\MakeTextUppercase{\allcapsspacing{#1}}}%
+                %% stamourv: idem
+	            \DeclareRobustCommand{\spacedlowsmallcaps}[1]{{\textsc{\lowsmallcapsspacing{#1}}}}%\protect
         }%
     }
 
