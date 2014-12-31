@@ -88,10 +88,6 @@ FORMAT
 (define-section-like chapter "Sthesischapter") ;; TODO include-chapter too
 
 
-;; TODO broken
-;;  - bibliography formatting not like stephen's thesis
-
-
 ;; TODO possible additions (supported by classicthesis)
 ;;  - subtitles
 ;;  - dedications

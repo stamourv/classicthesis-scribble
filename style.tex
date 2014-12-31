@@ -194,6 +194,6 @@
   \manualmark
   \markboth{\spacedlowsmallcaps{\bibname}}{\spacedlowsmallcaps{#1}} % work-around to have small caps also
   \refstepcounter{dummy}
-  \addtocontents{toc}{\protect\vspace{\beforebibskip}} % to have the bib a bit from the rest in the toc
-  \Ssectionstar{#2}\addcontentsline{toc}{part}{#1}
+  \chapter*{#2}\renewcommand*\thesubsection{\arabic{subsection}}\setcounter{subsection}{0}
+  \addcontentsline{toc}{part}{#1}
 }
