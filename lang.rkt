@@ -84,12 +84,11 @@ FORMAT
   (Chapterref "SthesisChapterref")
   (end-front-matter "Sendfrontmatter"))
 
-(define-section-like part "Sthesispart")
-(define-section-like chapter "Sthesischapter")
+(define-section-like part "Sthesispart") ;; TODO include-part too?
+(define-section-like chapter "Sthesischapter") ;; TODO include-chapter too
 
 
 ;; TODO broken
-;;  - table of contents formatting not like stephen's thesis (page numbers at right, with dots)
 ;;  - bibliography formatting not like stephen's thesis
 
 
