@@ -4,7 +4,7 @@
 
 (require scribble/doclang
          (except-in scribble/core part)
-         scribble/base
+         (except-in scribble/base table-of-contents)
          scribble/decode
          scribble/latex-prefix
          scribble/latex-properties
@@ -77,7 +77,7 @@ FORMAT
   (approval "Sapproval")
   (abstract "Sabstract") ;; TODO include-abstract too
   (acknowledgements "Sacknowledgements") ;; TODO include-acknowledgements too
-  (table-of-content "Stableofcontents")
+  (table-of-contents "Stableofcontents")
   (partref "Sthesispartref")
   (Partref "SthesisPartref")
   (chapterref "Sthesischapterref")
