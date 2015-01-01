@@ -30,10 +30,10 @@
 
 aaa
 
-@partref{aaa-tag}
-@Partref{aaa-tag}
-@chapterref{ab-tag}
-@Chapterref{ab-tag}
+@part-ref{aaa-tag}
+@Part-ref{aaa-tag}
+@chapter-ref{ab-tag}
+@Chapter-ref{ab-tag}
 @secref{a-tag}
 @Secref{a-tag}
 @secref{cc-tag}
