@@ -45,6 +45,10 @@ aaa
 @figure-ref{eh}
 @Figure-ref{eh}
 
+@(require (only-in scribble/manual racketblock))
+
+@racketblock[(+ 2 2)]
+
 @section{B}
 
 bbb

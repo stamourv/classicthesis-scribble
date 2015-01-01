@@ -59,8 +59,8 @@
                                       #%provide
                                       #%declare))))
          (values rev-expressions
-                 (cons expanded rev-non-expressions))]
+                 (cons stx rev-non-expressions))]
         [else
-         (values (cons expanded rev-expressions)
+         (values (cons stx rev-expressions)
                  rev-non-expressions)])))
   (values (reverse rev-expressions) (reverse rev-non-expressions)))
