@@ -84,8 +84,8 @@ FORMAT
   (Chapterref "SthesisChapterref")
   (end-front-matter "Sendfrontmatter"))
 
-(define-section-like part "Sthesispart") ;; TODO include-part too?
-(define-section-like chapter "Sthesischapter") ;; TODO include-chapter too
+(define-section-like part "Sthesispart")
+(define-section-like chapter "Sthesischapter")
 
 (define-syntax-rule (define-includer name style)
   (begin
