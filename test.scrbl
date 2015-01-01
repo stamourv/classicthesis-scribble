@@ -58,12 +58,7 @@ bbbb
 @section{b.5.1}
 @section{b/5/3}
 
-@part{CCC}
-@chapter{ccc}
-@section{C}
-@section[#:tag "cc-tag"]{CC}
-
-ccc
+@include-section{test-part.scrbl}
 
 @require["test-bib.rkt"]
 @cite[oka]
