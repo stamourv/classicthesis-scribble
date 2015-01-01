@@ -103,6 +103,10 @@ FORMAT
 (define-includer include-abstract "Sabstract")
 (define-includer include-acknowledgements "Sacknowledgements")
 
+;; TODO broken
+;; - 2nd part and on, link in pdf index points to end of previous chapter,
+;;   not beginning of part itself
+
 ;; TODO possible additions (supported by classicthesis)
 ;;  - subtitles
 ;;  - dedications
