@@ -201,3 +201,5 @@
   \chapter*{#2}\renewcommand*\thesubsection{\arabic{subsection}}\setcounter{subsection}{0}
   \addcontentsline{toc}{part}{#1}
 }
+
+\renewenvironment{FigureMulti}{\begin{figure}\FigureSetRef}{\end{figure}}

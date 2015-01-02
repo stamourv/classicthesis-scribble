@@ -41,9 +41,10 @@ aaa
 
 
 @figure["eh" "eh"]{ehh}
+@figure*["eh2" "eh2"]{ehh2}
 
 @figure-ref{eh}
-@Figure-ref{eh}
+@Figure-ref{eh2}
 
 @(require (only-in scribble/manual racketblock))
 
