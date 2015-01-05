@@ -163,32 +163,20 @@
   \cleardoublepage
   \part{#2}\label{#1}
 }
-\newcommand{\Sthesispartref}[1]{
-  part~\ref{#1}
-}
-\newcommand{\SthesisPartref}[1]{
-  Part~\ref{#1}
-}
+\newcommand{\Sthesispartref}[1]{part~\ref{#1}}
+\newcommand{\SthesisPartref}[1]{Part~\ref{#1}}
 
 \newcommand{\Sthesischapter}[2]{
   \chapter{#2}\label{#1}
 }
-\newcommand{\Sthesischapterref}[1]{
-  chapter~\ref{#1}
-}
-\newcommand{\SthesisChapterref}[1]{
-  Chapter~\ref{#1}
-}
+\newcommand{\Sthesischapterref}[1]{chapter~\ref{#1}}
+\newcommand{\SthesisChapterref}[1]{Chapter~\ref{#1}}
 
 \renewcommand{\Ssection}[2]{
   \section[#1]{#2}\let\thesubsection\SOriginalthesubsection\label{#1}
 }
-\renewcommand{\ChapRefLocal}[3]{
-  section~\ref{#1}
-}
-\renewcommand{\ChapRefLocalUC}[3]{
-  Section~\ref{#1}
-}
+\renewcommand{\ChapRefLocal}[3]{section~\ref{#1}}
+\renewcommand{\ChapRefLocalUC}[3]{Section~\ref{#1}}
 
 %% Redefine, to make bibliography standalone (i.e. not a section of the last
 %% chapter). Let's just hope all section*x should be chapters instead...
