@@ -177,6 +177,10 @@
 }
 \renewcommand{\ChapRefLocal}[3]{section~\ref{#1}}
 \renewcommand{\ChapRefLocalUC}[3]{Section~\ref{#1}}
+%% In this case, #2 is the scribble-computed section number, which can
+%% be hilariously off. No idea why.
+\renewcommand{\SecRefLocal}[3]{section~\ref{#1}}
+\renewcommand{\SecRefLocalUC}[3]{Section~\ref{#1}}
 
 %% Redefine, to make bibliography standalone (i.e. not a section of the last
 %% chapter). Let's just hope all section*x should be chapters instead...
