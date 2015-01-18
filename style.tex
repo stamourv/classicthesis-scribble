@@ -115,21 +115,17 @@
 \newcommand{\Sabstract}[1]{
   \pdfbookmark[1]{Abstract}{Abstract}
   \begingroup
-  %% \let\clearpage\relax
-  %% \let\cleardoublepage\relax
-  %% \let\cleardoublepage\relax
   \chapter*{Abstract}
   #1
   \endgroup
   \vfill
-  %% \cleardoublepage
 }
 
 \newcommand{\Sacknowledgements}[1]{
-  \pdfbookmark[1]{Acknowledgments}{acknowledgments}
   \bigskip
   \begingroup
   \chapter*{Acknowledgments}
+  \pdfbookmark[1]{Acknowledgments}{acknowledgments}
   #1
   \endgroup
   \cleardoublepage
