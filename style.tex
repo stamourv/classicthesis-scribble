@@ -191,4 +191,20 @@
   \addcontentsline{toc}{part}{#1}
 }
 
+%% Define a \provideenvironment that is analogous to \providecommand
+%% From http://tex.stackexchange.com/questions/20687/does-newenvironment-have-a-provideenvironment-cousin-as-newcommand-has-prov
+\makeatletter
+\def\provideenvironment{\@star@or@long\provide@environment}
+\def\provide@environment#1{%
+        \@ifundefined{#1}%
+                {\def\reserved@a{\newenvironment{#1}}}%
+                {\def\reserved@a{\renewenvironment{dummy@environ}}}%
+        \reserved@a
+}
+\def\dummy@environ{}
+\makeatother
+
+%% FigureMulti is only loaded when the @figure form from scriblib/figure
+%% is used, so provide first to ensure it is always defined
+\provideenvironment{FigureMulti}{}{}
 \renewenvironment{FigureMulti}{\begin{figure}\FigureSetRef}{\end{figure}}
