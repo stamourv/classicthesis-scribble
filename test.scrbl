@@ -30,6 +30,8 @@
 
 aaa
 
+@graffito{A margin note}
+
 @part-ref{aaa-tag}
 @Part-ref{aaa-tag}
 @chapter-ref{ab-tag}
