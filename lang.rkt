@@ -82,7 +82,8 @@ FORMAT
   (Part-ref "SthesisPartref")
   (chapter-ref "Sthesischapterref")
   (Chapter-ref "SthesisChapterref")
-  (end-front-matter "Sendfrontmatter"))
+  (end-front-matter "Sendfrontmatter")
+  (graffito "graffito"))
 
 (define-section-like part "Sthesispart")
 (define-section-like chapter "Sthesischapter")
