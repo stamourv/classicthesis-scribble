@@ -1,4 +1,4 @@
-#lang racket/base
+#lang at-exp racket/base
 
 ;; Mostly copied from scribble/sigplan/lang
 
@@ -11,29 +11,72 @@
          racket/list
          scribble/private/defaults
          setup/collects
-         (for-syntax racket/base))
+         (for-syntax racket/base
+                     syntax/parse))
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
          (all-from-out scribble/base)
-         (rename-out [module-begin #%module-begin]))
+         (rename-out [module-begin #%module-begin])
+         description)
+
+;; define keywords for #lang options
+(define-syntax-rule (define-keywords k ...)
+  (begin (define-syntax k (syntax-rules ())) ...
+         (provide k) ...))
+
+(define-keywords drafting parts nochapters linedheaders eulerchapternumbers
+                 beramono eulermath pdfspacing minionprospacing
+                 tocaligned dottedtoc manychapters)
 
 (define-syntax (module-begin stx)
-  (syntax-case stx ()
-    [(_ id . body)
-     #`(#%module-begin id post-process () . body)]))
+  (syntax-parse stx
+    [(_ doc:id . body)
+     ;; parse options like scribble/sigplan and similar languages
+     ;; this doesn't need to be a hash (can be a set), but a hash lets us
+     ;; have keywords with arguments like font sizing in the future
+     (define options (make-hash))
+     (let loop ([contents #'body])
+       (syntax-parse contents
+         [(ws . body)
+          ;; stolen from scribble/sigplan
+          #:when (and (string? (syntax-e #'ws))
+                      (regexp-match? #rx"^ *$" (syntax-e #'ws)))
+          (loop #'body)]
+         [((~and kw (~or (~literal drafting)
+                         (~literal parts)
+                         (~literal nochapters)
+                         (~literal linedheaders)
+                         (~literal eulerchapternumbers)
+                         (~literal beramono)
+                         (~literal eulermath)
+                         (~literal pdfspacing)
+                         (~literal minionprospacing)
+                         (~literal tocaligned)
+                         (~literal dottedtoc)
+                         (~literal manychapters)))
+           . body)
+          (hash-set! options
+                     (identifier-binding-symbol #'kw)
+                     #t)
+          (loop #'body)]
+         [body
+          #`(#%module-begin doc (post-process #,options) () . body)]))]))
 
-(define document-class ;; from the example in the classicthesis package
-  #<<FORMAT
-\documentclass[ twoside,openright,titlepage,numbers=noenddot,headinclude,%1headlines,% letterpaper a4paper
-                footinclude=true,cleardoublepage=empty,abstractoff, % <--- obsolete, remove (todo)
-                BCOR=5mm,paper=a4,fontsize=11pt,%11pt,a4paper,%
-                ngerman,american,%
-                ]{scrreprt}
-FORMAT
-)
+;; from the example in the classicthesis package, parameterized
+;; with the options provided on the #lang line
+(define (document-class options)
+  @string-append{
+    \documentclass[ twoside,openright,titlepage,numbers=noenddot,headinclude,%1headlines,% letterpaper a4paper
+                    footinclude=true,cleardoublepage=empty,abstractoff, % <--- obsolete, remove (todo)
+                    BCOR=5mm,paper=a4,fontsize=11pt,%11pt,a4paper,%
+                    ngerman,american,%
+                    @(apply string-append
+                            (add-between (map symbol->string (hash-keys options))
+                                         ","))]{scrreprt}
+  })
 
-(define (post-process doc)
+(define ((post-process options) doc)
   (add-defaults doc
-                (string->bytes/utf-8 document-class)
+                (string->bytes/utf-8 (document-class options))
                 (collection-file-path "style.tex" "classicthesis")
                 (list (collection-file-path "classicthesis.sty"
                                             "classicthesis"))
