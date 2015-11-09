@@ -15,8 +15,7 @@
                      syntax/parse))
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
          (all-from-out scribble/base)
-         (rename-out [module-begin #%module-begin])
-         description)
+         (rename-out [module-begin #%module-begin]))
 
 ;; define keywords for #lang options
 (define-syntax-rule (define-keywords k ...)
