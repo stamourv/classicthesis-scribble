@@ -1,4 +1,4 @@
-#lang classicthesis
+#lang classicthesis @parts @pdfspacing
 
 @title{Syntactic Extension for Languages with Implicitly Delimited and Infix Syntax}
 @author{Jon Rafkind}
