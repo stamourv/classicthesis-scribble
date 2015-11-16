@@ -1,5 +1,5 @@
 #lang classicthesis/include
 
-@part{CCC}
+@title{CCC}
 
 @include-section{test-chapter.scrbl}

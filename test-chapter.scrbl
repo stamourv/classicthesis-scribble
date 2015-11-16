@@ -1,6 +1,6 @@
 #lang classicthesis/include
 
-@chapter{ccc}
+@title{ccc}
 
 @(define c-tag "c-tag")
 

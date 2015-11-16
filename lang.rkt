@@ -3,19 +3,24 @@
 ;; Mostly copied from scribble/sigplan/lang
 
 (require scribble/doclang
-         (except-in scribble/core part)
+         (rename-in scribble/core [part sc:part])
          (except-in scribble/base table-of-contents)
          scribble/decode
          scribble/latex-prefix
          scribble/latex-properties
          racket/list
+         racket/match
          scribble/private/defaults
          setup/collects
          (for-syntax racket/base
                      syntax/parse))
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
          (all-from-out scribble/base)
-         (rename-out [module-begin #%module-begin]))
+         (rename-out [module-begin #%module-begin])
+
+         chapter
+         part
+         include-part)
 
 ;; define keywords for #lang options
 (define-syntax-rule (define-keywords k ...)
@@ -127,8 +132,10 @@
   (end-front-matter "Sendfrontmatter")
   (graffito "graffito"))
 
-(define-section-like part "Sthesispart")
-(define-section-like chapter "Sthesischapter")
+(define (part #:tag [tag (symbol->string (gensym))] . str)
+  (apply section #:style (make-style #f '(grouper)) str))
+
+(define chapter section)
 
 (define-syntax-rule (define-includer name style)
   (begin
@@ -145,6 +152,29 @@
 
 (define-includer include-abstract "Sabstract")
 (define-includer include-acknowledgements "Sacknowledgements")
+
+;; A variant of include-section that adds a grouper style to make it a part
+(define-syntax (include-part stx)
+  (syntax-parse stx
+    [(_ mod)
+     (define doc-from-mod (datum->syntax #'mod 'doc))
+     (unless (module-path? (syntax->datum #'mod))
+       (raise-syntax-error 'include-chapter
+                           "not a module path"
+                           stx
+                           #'mod))
+     #`(begin
+         (require (only-in mod [#,doc-from-mod doc]))
+         (to-part doc))]))
+
+;; Helper for above macro
+(define (to-part doc)
+  (define old-style (part-style doc))
+  (match-define (sc:part tp tags tc style collect blocks part) doc)
+  (sc:part tp tags tc
+           (make-style (style-name style)
+                       (cons 'grouper (style-properties style)))
+           collect blocks part))
 
 ;; TODO possible additions (supported by classicthesis)
 ;;  - subtitles

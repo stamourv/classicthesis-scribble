@@ -26,7 +26,7 @@
 
 @chapter[#:tag "ab-tag"]{AB}
 
-@section[#:tag "a-tag"]{A}
+@subsection[#:tag "a-tag"]{A}
 
 aaa
 
@@ -52,20 +52,20 @@ aaa
 
 @racketblock[(+ 2 2)]
 
-@section{B}
+@subsection{B}
 
 bbb
 
-@subsection{BA}
+@subsubsection{BA}
 baaa
-@subsection{BB}
+@subsubsection{BB}
 bbbb
 
 @chapter{b.5}
-@section{b.5.1}
-@section{b/5/3}
+@subsection{b.5.1}
+@subsection{b/5/3}
 
-@include-section{test-part.scrbl}
+@include-part{test-part.scrbl}
 
 @require["test-bib.rkt"]
 @cite[oka]
