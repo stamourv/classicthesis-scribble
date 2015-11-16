@@ -3,22 +3,19 @@
 ;; Mostly copied from scribble/sigplan/lang
 
 (require scribble/doclang
-         (rename-in scribble/core [part sc:part])
+         (except-in scribble/core part)
          (except-in scribble/base table-of-contents)
          scribble/decode
          scribble/latex-prefix
          scribble/latex-properties
          racket/list
-         racket/match
          scribble/private/defaults
          setup/collects
          (for-syntax racket/base
                      syntax/parse))
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
          (all-from-out scribble/base)
-         (rename-out [module-begin #%module-begin])
-
-         include-chapter)
+         (rename-out [module-begin #%module-begin]))
 
 ;; define keywords for #lang options
 (define-syntax-rule (define-keywords k ...)
@@ -148,34 +145,6 @@
 
 (define-includer include-abstract "Sabstract")
 (define-includer include-acknowledgements "Sacknowledgements")
-
-;; A variant of include-section that manually deconstructs the `doc` binding
-;; to construct a chapter instead of a section.
-(define-syntax (include-chapter stx)
-  (syntax-parse stx
-    [(_ mod)
-     (define doc-from-mod (datum->syntax #'mod 'doc))
-     (unless (module-path? (syntax->datum #'mod))
-       (raise-syntax-error 'include-chapter
-                           "not a module path"
-                           stx
-                           #'mod))
-     #`(begin
-         (require (only-in mod [#,doc-from-mod doc]))
-         (part->chapter doc))]))
-
-;; A helper for the above macro
-(define (part->chapter doc)
-  (match-define (sc:part tp tags title style tc blocks parts) doc)
-  (append (match* (tc tags)
-            ;; if there's no title or it's formatted oddly, don't bother with
-            ;; a chapter start
-            [((list (index-element _ _ _ _ (list (element _ content)) _))
-              (list (list _ tag-name)))
-             (list (apply chapter #:tag tag-name content))]
-            [(_ _) null])
-          blocks
-          parts))
 
 ;; TODO possible additions (supported by classicthesis)
 ;;  - subtitles
