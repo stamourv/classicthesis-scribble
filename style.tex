@@ -156,8 +156,6 @@
   \cleardoublepage
   \part{#2}\label{#1}
 }
-\newcommand{\Sthesispartref}[1]{part~\ref{#1}}
-\newcommand{\SthesisPartref}[1]{Part~\ref{#1}}
 
 % Taken from scribble/book
 \renewcommand{\Spart}[2]{\part[#1]{#2}}
@@ -173,6 +171,8 @@
 %% be hilariously off. No idea why.
 \renewcommand{\SecRefLocal}[3]{section~\ref{#1}}
 \renewcommand{\SecRefLocalUC}[3]{Section~\ref{#1}}
+\renewcommand{\PartRefLocal}[3]{part~\ref{#1}}
+\renewcommand{\PartRefLocalUC}[3]{Part~\ref{#1}}
 
 %% Redefine, to make bibliography standalone (i.e. not a section of the last
 %% chapter). Let's just hope all section*x should be chapters instead...

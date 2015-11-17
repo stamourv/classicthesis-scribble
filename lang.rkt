@@ -22,6 +22,8 @@
          chapter-ref
          Chapter-ref
          part
+         part-ref
+         Part-ref
          include-part)
 
 ;; define keywords for #lang options
@@ -127,8 +129,6 @@
   (abstract "Sabstract")
   (acknowledgements "Sacknowledgements")
   (table-of-contents "Stableofcontents")
-  (part-ref "Sthesispartref")
-  (Part-ref "SthesisPartref")
   (end-front-matter "Sendfrontmatter")
   (graffito "graffito"))
 
@@ -136,9 +136,11 @@
 ;; advantage of that to do chapter references. See style.tex
 (define chapter-ref secref)
 (define Chapter-ref Secref)
+(define part-ref secref)
+(define Part-ref Secref)
 
 (define (part #:tag [tag (symbol->string (gensym))] . str)
-  (apply section #:style (make-style #f '(grouper)) str))
+  (apply section #:tag tag #:style (make-style #f '(grouper)) str))
 
 (define chapter section)
 
