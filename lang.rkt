@@ -19,6 +19,8 @@
          (rename-out [module-begin #%module-begin])
 
          chapter
+         chapter-ref
+         Chapter-ref
          part
          include-part)
 
@@ -127,10 +129,13 @@
   (table-of-contents "Stableofcontents")
   (part-ref "Sthesispartref")
   (Part-ref "SthesisPartref")
-  (chapter-ref "Sthesischapterref")
-  (Chapter-ref "SthesisChapterref")
   (end-front-matter "Sendfrontmatter")
   (graffito "graffito"))
+
+;; Scribble handles top-level sections specially as chapters anyway, so take
+;; advantage of that to do chapter references. See style.tex
+(define chapter-ref secref)
+(define Chapter-ref Secref)
 
 (define (part #:tag [tag (symbol->string (gensym))] . str)
   (apply section #:style (make-style #f '(grouper)) str))

@@ -159,9 +159,6 @@
 \newcommand{\Sthesispartref}[1]{part~\ref{#1}}
 \newcommand{\SthesisPartref}[1]{Part~\ref{#1}}
 
-\newcommand{\Sthesischapterref}[1]{chapter~\ref{#1}}
-\newcommand{\SthesisChapterref}[1]{Chapter~\ref{#1}}
-
 % Taken from scribble/book
 \renewcommand{\Spart}[2]{\part[#1]{#2}}
 \renewcommand{\Ssection}[2]{\chapter[#1]{#2}}
@@ -170,8 +167,8 @@
 \renewcommand{\Ssubsubsubsection}[2]{\subsubsection[#1]{#2}}
 \renewcommand{\Ssubsubsubsubsection}[2]{{\bf #2}}
 
-\renewcommand{\ChapRefLocal}[3]{section~\ref{#1}}
-\renewcommand{\ChapRefLocalUC}[3]{Section~\ref{#1}}
+\renewcommand{\ChapRefLocal}[3]{chapter~\ref{#1}}
+\renewcommand{\ChapRefLocalUC}[3]{Chapter~\ref{#1}}
 %% In this case, #2 is the scribble-computed section number, which can
 %% be hilariously off. No idea why.
 \renewcommand{\SecRefLocal}[3]{section~\ref{#1}}
