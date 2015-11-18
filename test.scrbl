@@ -24,6 +24,9 @@
 
 @part[#:tag "aaa-tag"]{AAA}
 
+@part-text{An extra informational blurb on this part. It will display
+           under the part heading.}
+
 @chapter[#:tag "ab-tag"]{AB}
 
 @subsection[#:tag "a-tag"]{A}

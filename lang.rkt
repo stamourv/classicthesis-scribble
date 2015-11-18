@@ -130,7 +130,8 @@
   (acknowledgements "Sacknowledgements")
   (table-of-contents "Stableofcontents")
   (end-front-matter "Sendfrontmatter")
-  (graffito "graffito"))
+  (graffito "graffito")
+  (part-text "ctparttext"))
 
 ;; Scribble handles top-level sections specially as chapters anyway, so take
 ;; advantage of that to do chapter references. See style.tex
