@@ -142,10 +142,6 @@
   \cleardoublepage
 }
 
-%% to make part numbers uppercase in table of contents
-%% from: http://tex.stackexchange.com/questions/73531/part-in-classicthesis-doesnt-display-capital-roman-numerals
-\AtBeginDocument{\renewcommand{\thepart}{\Roman{part}}}
-
 %% doesn't seem to work when called from inside \Stableofcontents, so
 %% needs to be called explicitly from the scribble document
 \newcommand{\Sendfrontmatter}{
