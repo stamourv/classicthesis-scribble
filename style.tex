@@ -153,13 +153,29 @@
   \part{#2}\label{#1}
 }
 
-% Taken from scribble/book
+%% Taken from scribble/book
 \renewcommand{\Spart}[2]{\part[#1]{#2}}
 \renewcommand{\Ssection}[2]{\chapter[#1]{#2}}
 \renewcommand{\Ssubsection}[2]{\section[#1]{#2}}
 \renewcommand{\Ssubsubsection}[2]{\subsection[#1]{#2}}
 \renewcommand{\Ssubsubsubsection}[2]{\subsubsection[#1]{#2}}
 \renewcommand{\Ssubsubsubsubsection}[2]{{\bf #2}}
+
+%% "star" means unnumbered and not in ToC: (also from scribble/book)
+\renewcommand{\Spartstar}[1]{\part*{#1}}
+\renewcommand{\Ssectionstar}[1]{\chapter*{#1}}
+\renewcommand{\Ssubsectionstar}[1]{\section*{#1}}
+\renewcommand{\Ssubsubsectionstar}[1]{\subsection*{#1}}
+\renewcommand{\Ssubsubsubsectionstar}[1]{\subsubsection*{#1}}
+\renewcommand{\Ssubsubsubsubsectionstar}[1]{\Ssubsubsubsubsection{#1}}
+
+% "starx" means unnumbered but in ToC: (also from scribble/book)
+\renewcommand{\Spartstarx}[2]{\Spartstar{#2}\addcontentsline{toc}{part}{#1}}
+\renewcommand{\Ssectionstarx}[2]{\Ssectionstar{#2}\addcontentsline{toc}{chapter}{#1}}
+\renewcommand{\Ssubsectionstarx}[2]{\Ssubsectionstar{#2}\addcontentsline{toc}{section}{#1}}
+\renewcommand{\Ssubsubsectionstarx}[2]{\Ssubsubsectionstar{#2}\addcontentsline{toc}{subsection}{#1}}
+\renewcommand{\Ssubsubsubsectionstarx}[2]{\Ssubsubsubsectionstar{#2}\addcontentsline{toc}{subsubsection}{#1}}
+\renewcommand{\Ssubsubsubsubsectionstarx}[2]{\Ssubsubsubsubsectionstar{#2}}
 
 \renewcommand{\ChapRefLocal}[3]{chapter~\ref{#1}}
 \renewcommand{\ChapRefLocalUC}[3]{Chapter~\ref{#1}}
@@ -169,18 +185,6 @@
 \renewcommand{\SecRefLocalUC}[3]{Section~\ref{#1}}
 \renewcommand{\PartRefLocal}[3]{part~\ref{#1}}
 \renewcommand{\PartRefLocalUC}[3]{Part~\ref{#1}}
-
-%% Redefine, to make bibliography standalone (i.e. not a section of the last
-%% chapter). Let's just hope all section*x should be chapters instead...
-%% arguments are the bibliography's name (twice?)
-\renewcommand{\Ssectionstarx}[2]{
-  \cleardoublepage
-  \manualmark
-  \markboth{\spacedlowsmallcaps{\bibname}}{\spacedlowsmallcaps{#1}} % work-around to have small caps also
-  \refstepcounter{dummy}
-  \chapter*{#2}\renewcommand*\thesubsection{\arabic{subsection}}\setcounter{subsection}{0}
-  \addcontentsline{toc}{part}{#1}
-}
 
 %% Define a \provideenvironment that is analogous to \providecommand
 %% From http://tex.stackexchange.com/questions/20687/does-newenvironment-have-a-provideenvironment-cousin-as-newcommand-has-prov
