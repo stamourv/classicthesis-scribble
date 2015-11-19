@@ -80,6 +80,16 @@
                     @(apply string-append
                             (add-between (map symbol->string (hash-keys options))
                                          ","))]{scrreprt}
+    %% from http://tex.stackexchange.com/a/39418
+    \makeatletter
+    \newcommand{\dontusepackage}[2][]{%
+      \@"@"namedef{ver@"@"#2.sty}{9999/12/31}%
+      \@"@"namedef{opt@"@"#2.sty}{#1}}
+    \makeatother
+
+    %% Disable Scribble's default TOC configuration
+    \dontusepackage{tocstyle}
+    \newcommand{\usetocstyle}[1]{\relax}
   })
 
 (define ((post-process options) doc)
