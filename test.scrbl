@@ -22,10 +22,10 @@
 
 @(require scriblib/figure)
 
-@part[#:tag "aaa-tag"]{AAA}
-
-@part-text{An extra informational blurb on this part. It will display
-           under the part heading.}
+@part[#:tag "aaa-tag"
+      #:preamble
+      @elem{An extra informational blurb on this part. It will display
+            under the part heading.}]{AAA}
 
 @chapter[#:tag "ab-tag"]{AB}
 

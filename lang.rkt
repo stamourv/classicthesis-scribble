@@ -8,6 +8,7 @@
          scribble/decode
          scribble/latex-prefix
          scribble/latex-properties
+         racket/contract
          racket/list
          racket/match
          scribble/private/defaults
@@ -21,10 +22,16 @@
          chapter
          chapter-ref
          Chapter-ref
-         part
          part-ref
          Part-ref
-         include-part)
+         include-part
+
+         (contract-out
+          [part (->* []
+                     [#:tag string?
+                      #:preamble content?]
+                     #:rest pre-content?
+                     any)]))
 
 ;; define keywords for #lang options
 (define-syntax-rule (define-keywords k ...)
@@ -140,8 +147,7 @@
   (acknowledgements "Sacknowledgements")
   (table-of-contents "Stableofcontents")
   (end-front-matter "Sendfrontmatter")
-  (graffito "graffito")
-  (part-text "ctparttext"))
+  (graffito "graffito"))
 
 ;; Scribble handles top-level sections specially as chapters anyway, so take
 ;; advantage of that to do chapter references. See style.tex
@@ -150,8 +156,14 @@
 (define part-ref secref)
 (define Part-ref Secref)
 
-(define (part #:tag [tag (symbol->string (gensym))] . str)
-  (apply section #:tag tag #:style (make-style #f '(grouper)) str))
+(define (part #:tag [tag (symbol->string (gensym))]
+              #:preamble [pre #f]
+              . str)
+  (define sec
+    (apply section #:tag tag #:style (make-style #f '(grouper)) str))
+  (if pre
+      (list (make-element (make-style "ctparttext" null) pre) sec)
+      sec))
 
 (define chapter section)
 
