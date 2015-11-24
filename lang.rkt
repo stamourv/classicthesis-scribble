@@ -162,7 +162,15 @@
   (define sec
     (apply section #:tag tag #:style (make-style #f '(grouper)) str))
   (if pre
-      (list (make-element (make-style "ctparttext" null) pre) sec)
+      ;; The ctparttext has to come *before* the actual part command. Also it
+      ;; has to be in its own part so that it's not ignored by the decode pass.
+      (list (make-part
+             #f null #f (make-style #f null) null
+             (list (make-paragraph
+                    (make-style #f null)
+                    (make-element (make-style "ctparttext" null) pre)))
+             null)
+            sec)
       sec))
 
 (define chapter section)
